@@ -11,13 +11,13 @@ void printd(int n){
 		n=-n;
 	}
 	if(n/10>0){
-		printd(n/10);
+		printd(n/10); // recursive -> stack
 	}
 	putchar(n%10+'0');
 	fflush(stdout);
 }
 int main(int argc, char **argv) {
-	int x = 123456;
+	int x = 1234567;
 	printd(x);
 	return 0;
 }
