@@ -21,11 +21,11 @@ int main(int argc, char **argv) {
 	char* message1p = message1;
 	printf("size of message1, message1p: %lu, %lu\n",sizeof(message1), sizeof(message1p)); // 12, 8
 
-	printf("address of message1 %p\n",message1); // 0xffffcb9c
-	printf("address of message1p %p\n",message1p); // 0xffffcb9c
+	printf("address of message1 %p\n",message1); // 0xffffcba4
+	printf("address of message1p %p\n",message1p); // 0xffffcba4
 
-	printf("address of &message1 %p\n",&message1); //
-	printf("address of &message1p %p\n",&message1p); //
+	printf("address of &message1 %p\n",&message1); // 0xffffcba4
+	printf("address of &message1p %p\n",&message1p); // 0xffffcb88
 
 
 	return 0;
