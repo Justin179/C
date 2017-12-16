@@ -16,12 +16,12 @@ typedef struct car {
 	int passenger;
 	float weight;
 	carDimension size;
-} normalCar;
-struct car mycar = {"my car1",0,2010.0,{2121,800,350}};
-void printDimension(struct car thiscar){
+} car;
+car mycar = {"my car1",0,2010.0,{2121,800,350}};
+void printDimension(car thiscar){
 	printf("thiscar.size.x/y/z = [%d,%d,%d]\n",thiscar.size.x, thiscar.size.y, thiscar.size.z);
 }
-void printName(struct car thisCar){
+void printName(car thisCar){
 	printf("car name= %s\n",thisCar.name);
 }
 int main(int argc, char **argv) {
@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
 
 	printName(mycar);
 
-	normalCar anothercar = {"my car2", 1, 1980.0,{2133,833,333}};
+	car anothercar = {"my car2", 1, 1980.0,{2133,833,333}};
 	printName(anothercar);
 	printDimension(anothercar);
 	printDimension(mycar);
