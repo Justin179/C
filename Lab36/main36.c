@@ -24,6 +24,11 @@ void printDimension(car thiscar){
 void printName(car thisCar){
 	printf("car name= %s\n",thisCar.name);
 }
+void addPassenger(car thiscar){
+	thiscar.passenger += 1;
+	printf("[Inside] add a passenger in car, now %d\n",thiscar.passenger);
+}
+
 int main(int argc, char **argv) {
 	printf("size of car instance= %lu\n",sizeof(mycar));
 
@@ -33,6 +38,10 @@ int main(int argc, char **argv) {
 	printName(anothercar);
 	printDimension(anothercar);
 	printDimension(mycar);
+
+	printf("anothercar.passenger= %d\n",anothercar.passenger); // 1
+	addPassenger(anothercar); // 2
+	printf("anothercar.passenger= %d\n",anothercar.passenger); // 1
 
 	return 0;
 }
