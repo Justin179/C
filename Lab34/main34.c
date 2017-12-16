@@ -6,12 +6,11 @@
  */
 
 #include <stdio.h>
-
+#include "discount.h"
+// 這個區塊的位置，必須要在main上面，否則會出錯
 float discountRate = 0.9;
-float applyDiscount(int price){
-	return (float) price*discountRate;
-}
 int itemPrices[] = {80,100,300};
+
 
 int main(int argc, char **argv) {
 	int i;
@@ -21,3 +20,6 @@ int main(int argc, char **argv) {
 	return 0;
 }
 
+float applyDiscount(int price){
+	return (float) price*discountRate;
+}
