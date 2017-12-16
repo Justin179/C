@@ -6,16 +6,16 @@
  */
 
 #include <stdio.h>
-struct dimension{
+typedef struct dimension{
 	int x;
 	int y;
 	int z;
-};
+} carDimension;
 struct car {
 	const char* name;
 	int passenger;
 	float weight;
-	struct dimension size;
+	carDimension size;
 };
 struct car mycar = {"my car1",0,2010.0,{2121,800,350}};
 void printDimension(struct car thiscar){
