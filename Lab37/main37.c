@@ -30,8 +30,18 @@ void printAllRecords(socialRecord* aRecord) {
 	}
 }
 
-void release(){
-
+void release(socialRecord* firstRecord){
+	// keep pointer to next
+	socialRecord* nextRecord;
+	for(socialRecord* currentRecord = firstRecord; currentRecord!=NULL; currentRecord = nextRecord){
+		// 先把下一個物件存起來
+		nextRecord = currentRecord->nextRecord;
+		// 釋放記憶體(自己new的物件，要自己歸還記憶體)
+		free(currentRecord->name);
+		free(currentRecord->title);
+		free(currentRecord->detail);
+		free(currentRecord);
+	}
 }
 
 int main(int argc, char **argv) {
@@ -58,6 +68,8 @@ int main(int argc, char **argv) {
 	// 有兩個串連起來的物件，印出兩筆
 	printAllRecords(firstRecord);
 
+	// 全部用完後，歸還記憶體
+	release(firstRecord);
 
 //	socialRecord firstRecord = {"Mark","first record","some details",NULL};
 //	socialRecord secondRecord = {"John","second record","more details",NULL};
