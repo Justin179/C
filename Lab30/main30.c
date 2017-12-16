@@ -25,6 +25,11 @@ int main(int argc, char **argv) {
 		}
 	}
 
+	printf("optind value=%d\n",optind);
+	// handld already processed data
+	argc -= optind; // calculate remaining parameter count
+	argv += optind; // move array to remaining parameter
+
 	int i;
 	for(i=0;i<argc;i++){
 		printf("#%d parameter=%s\n",i,argv[i]);
