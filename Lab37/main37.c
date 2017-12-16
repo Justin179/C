@@ -6,12 +6,23 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 typedef struct socialRecord{
 	char* name;
 	char* title;
 	char* detail;
 	struct socialRecord* nextRecord;
 } socialRecord;
+
+socialRecord* createRecord(char* name,char* title,char* detail){
+	socialRecord* thisRecord = malloc(sizeof(socialRecord));
+	thisRecord->name = name;
+	thisRecord->title = title;
+	thisRecord->detail = detail;
+	thisRecord->nextRecord = NULL;
+	return thisRecord;
+}
 
 void printAllRecords(socialRecord* aRecord) {
 	for(socialRecord* currentRecord = aRecord; currentRecord!=NULL; currentRecord=currentRecord->nextRecord){
@@ -20,14 +31,29 @@ void printAllRecords(socialRecord* aRecord) {
 }
 
 int main(int argc, char **argv) {
-	socialRecord firstRecord = {"Mark","first record","some details",NULL};
-	socialRecord secondRecord = {"John","second record","more details",NULL};
-	socialRecord thirdRecord = {"Tim","last record","...",NULL};
+	char name[80] = "mark";
+	char title[100] = "title1";
+	char detail[200] = "detail1";
 
-	firstRecord.nextRecord = &secondRecord;
-	secondRecord.nextRecord = &thirdRecord;
+	socialRecord* firstRecord = createRecord(name,title,detail);
+	printAllRecords(firstRecord);
 
-	printAllRecords(&firstRecord);
+	strcpy(name,"John");
+	strcpy(title,"title2");
+	strcpy(detail,"detail2");
+	socialRecord* secondRecord = createRecord(name,title,detail);
+
+	printAllRecords(firstRecord);
+	printAllRecords(secondRecord);
+
+//	socialRecord firstRecord = {"Mark","first record","some details",NULL};
+//	socialRecord secondRecord = {"John","second record","more details",NULL};
+//	socialRecord thirdRecord = {"Tim","last record","...",NULL};
+//
+//	firstRecord.nextRecord = &secondRecord;
+//	secondRecord.nextRecord = &thirdRecord;
+//
+//	printAllRecords(&firstRecord);
 
 	return 0;
 }
