@@ -17,9 +17,9 @@ typedef struct socialRecord{
 
 socialRecord* createRecord(char* name,char* title,char* detail){
 	socialRecord* thisRecord = malloc(sizeof(socialRecord));
-	thisRecord->name = name;
-	thisRecord->title = title;
-	thisRecord->detail = detail;
+	thisRecord->name = strdup(name); // 產一個有不同記憶體位置的複本
+	thisRecord->title = strdup(title); // 產一個有不同記憶體位置的複本
+	thisRecord->detail = strdup(detail); // 產一個有不同記憶體位置的複本
 	thisRecord->nextRecord = NULL;
 	return thisRecord;
 }
@@ -30,21 +30,34 @@ void printAllRecords(socialRecord* aRecord) {
 	}
 }
 
+void release(){
+
+}
+
 int main(int argc, char **argv) {
 	char name[80] = "mark";
 	char title[100] = "title1";
 	char detail[200] = "detail1";
 
+	// 產一個物件
 	socialRecord* firstRecord = createRecord(name,title,detail);
+	// 只有一個物件，印出一筆
 	printAllRecords(firstRecord);
 
-	strcpy(name,"John");
-	strcpy(title,"title2");
-	strcpy(detail,"detail2");
+	// 這三行是在同一個記憶體位置填入不同的值
+	strcpy(name,"John"); // 蓋上面的mark
+	strcpy(title,"title2"); // 同上
+	strcpy(detail,"detail2"); // 同上
+
+	// 產另一個物件
 	socialRecord* secondRecord = createRecord(name,title,detail);
 
+	// 串連兩個物件
+	firstRecord->nextRecord = secondRecord;
+
+	// 有兩個串連起來的物件，印出兩筆
 	printAllRecords(firstRecord);
-	printAllRecords(secondRecord);
+
 
 //	socialRecord firstRecord = {"Mark","first record","some details",NULL};
 //	socialRecord secondRecord = {"John","second record","more details",NULL};
