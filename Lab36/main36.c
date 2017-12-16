@@ -6,6 +6,12 @@
  */
 
 #include <stdio.h>
+typedef union capacity{
+	int maxPassenger;
+	int maxLiter;
+	float maxKilogram;
+} capacity;
+
 typedef struct dimension{
 	int x;
 	int y;
@@ -16,8 +22,9 @@ typedef struct car {
 	int passenger;
 	float weight;
 	carDimension size;
+	capacity maxCapacity;
 } car;
-car mycar = {"my car1",0,2010.0,{2121,800,350}};
+car mycar = {"my car1",0,2010.0,{2121,800,350},{.maxPassenger=5}};
 void printDimension(car thiscar){
 	printf("thiscar.size.x/y/z = [%d,%d,%d]\n",thiscar.size.x, thiscar.size.y, thiscar.size.z);
 }
@@ -34,7 +41,8 @@ int main(int argc, char **argv) {
 
 	printName(mycar);
 
-	car anothercar = {"my car2", 1, 1980.0,{2133,833,333}};
+	car anothercar = {"my car2", 1, 1980.0,{2133,833,333},{.maxLiter=70}};
+	printf("anothercar maxLiter= %d\n",anothercar.maxCapacity.maxLiter);
 	printName(anothercar);
 	printDimension(anothercar);
 	printDimension(mycar);
