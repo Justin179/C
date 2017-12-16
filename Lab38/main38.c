@@ -10,15 +10,20 @@
 float TWDToYen(int originCurrency){
 	return (float) originCurrency * 3.1;
 }
+float TWDToUSD(int originCurrency){
+	return (float) originCurrency * 0.31;
+}
 void currencyExchange(int originCurrency, float (*exchange)(int)){
-	printf("NTD %d--> Yen %.2f\n",originCurrency,exchange(originCurrency));
+	printf("NTD %d--> other currency %.2f\n",originCurrency,exchange(originCurrency));
 }
 int main(int argc, char **argv) {
 	int totalTWD = 1000000;
 	// 方法
-	float(*pTWDToYen)(int) = TWDToYen;
+	float(*pExchange[])(int) = {TWDToYen,TWDToUSD};
 	// 把方法，以物件型態傳入另一個方法
-	currencyExchange(totalTWD,pTWDToYen);
+	for(int i=0; i<2; i++){
+		currencyExchange(totalTWD,pExchange[i]);
+	}
 	return 0;
 }
 
