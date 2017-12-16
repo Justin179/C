@@ -25,8 +25,8 @@ void printName(car thisCar){
 	printf("car name= %s\n",thisCar.name);
 }
 void addPassenger(car* thiscar){
-	(*thiscar).passenger += 1;
-	printf("[Inside] add a passenger in car, now %d\n",(*thiscar).passenger);
+	thiscar->passenger += 1;
+	printf("[Inside] add a passenger in car, now %d\n",thiscar->passenger);
 }
 
 int main(int argc, char **argv) {
