@@ -15,12 +15,26 @@ int main(int argc, char **argv) {
 	fflush(stdout);
 
 	// try to clone process
-	pid_t pid = fork();
+	pid_t pid = fork(); // pid為fork的回傳值(pid!=0-> parent process; pid==0-> child process)
+
 	if(pid==-1){
 		printf("process can't be forked \n");
 	} else {
+		printf("pid=%d \n",pid);
 		printf("fork success \n");
+		fflush(stdout);
 	}
+
+	if(!pid){ // pid==0(false), child process
+		if(execlp("ls","ls","-1",NULL)==-1){
+			fprintf(stderr,"exec failed, due to ... %s\n",strerror(errno));
+			return 1;
+		}
+	}
+
+	printf("start print something again:");
+	fflush(stdout);
+	execlp("ls","ls","-al","..",NULL);
 
 	return 0;
 }
