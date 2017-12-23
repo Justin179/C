@@ -1,0 +1,11 @@
+will be done in both parent and child process, with pid=0
+total 38
+drwxrwx---+ 1 Administrators None     0 Dec 23 10:58 .
+drwxrwx---+ 1 Administrators None     0 Dec 23 10:45 ..
+-rwxrwx---+ 1 Administrators None 11480 Dec 23 10:45 .cproject
+-rwxrwx---+ 1 Administrators None     8 Dec 23 10:48 .gitignore
+-rwxrwx---+ 1 Administrators None   783 Dec 23 10:45 .project
+drwxrwx---+ 1 Administrators None     0 Dec 23 10:45 .settings
+drwxrwx---+ 1 Administrators None     0 Dec 23 11:05 Debug
+-rwxrwx---+ 1 Administrators None   822 Dec 23 11:05 main43.c
+-rw-r--r--+ 1 Administrator  None    58 Dec 23 11:05 myfile
