@@ -9,7 +9,7 @@
 int calculateMyVar(){
 	return 3*2;
 }
-extern const int myVar = calculateMyVar();
+const int myVar = calculateMyVar();
 Foo::Foo() {
 	// TODO Auto-generated constructor stub
 
