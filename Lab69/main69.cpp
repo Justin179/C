@@ -33,8 +33,17 @@ istream& operator >>(istream& stream, coord& obj){
 	return stream;
 }
 
+// 宣告在class外面的話，就不用加friend
+ostream& COORD_FORMAT(ostream& stream);
+ostream& COORD_FORMAT(ostream& stream){
+	stream << "*** print in [coord.x, coord.y] format" << endl;
+	return stream;
+}
+
 
 int main(int argc, char **argv) {
+	cout << COORD_FORMAT;
+
 	coord a(1,1), b(5,7), c;
 	cout << a << b << c << endl;
 
